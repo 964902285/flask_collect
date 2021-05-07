@@ -21,6 +21,7 @@ class Index(db.Model):
         html = collect.spi.get_source(url)
         if html:
             index_list = collect.spi.get_index_list(html)
+            # print(index_list)
             for url, name in index_list:
                 real_url = collect.base_url + url
                 index = Index.query.filter_by(url=real_url).first()
@@ -37,6 +38,7 @@ class Index(db.Model):
     def index_edit(name):
         collect = create_collect(name)
         index_list = Index.query.filter_by(status=0).all()
+        # print(index_list)
         if index_list:
             for index in index_list:
                 html = collect.spi.get_source(index.url)
@@ -67,7 +69,9 @@ class List(db.Model):
     def list_add(name):
         collect = create_collect(name)
         index_list = Index.query.filter_by(status=1).all()
+        print("index list: ", index_list)
         for index in index_list:
+            print("index html: ", index)
             page_list = collect.spi.get_page_list(index.html)
             for url, name in page_list:
                 real_url = collect.base_url + url
@@ -84,9 +88,11 @@ class List(db.Model):
     def list_edit(name):
         collect = create_collect(name)
         item_list = List.query.filter_by(status=0).all()
+        # print("item list: ", item_list)
         if item_list:
             for item in item_list:
                 html = collect.spi.get_source(item.url)
+                # print(html)
                 if html:
                     item_html = collect.spi.get_body(html)
                     if item_html:
