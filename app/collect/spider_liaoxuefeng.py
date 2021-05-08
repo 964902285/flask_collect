@@ -1,3 +1,11 @@
+"""
+@File    : spider_liaoxuefeng.py
+@Time    : 2021/4/23 16:14
+@Author  : shroud.xu
+@Description: 一个 ctrl c + v 工程师
+@Email   : shroud.xu@cygia.com
+@Software: PyCharm
+"""
 import requests
 import re
 import urllib3
