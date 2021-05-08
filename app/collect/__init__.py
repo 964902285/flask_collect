@@ -6,6 +6,8 @@
 @Email   : shroud.xu@cygia.com
 @Software: PyCharm
 """
+
+
 class Collect_liaoxuefeng(object):
     from .spider_liaoxuefeng import spider_liaoxuefeng
     base_url = 'https://www.liaoxuefeng.com'

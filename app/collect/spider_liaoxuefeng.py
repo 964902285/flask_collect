@@ -34,8 +34,9 @@ class spider_liaoxuefeng(object):
         # url_box_temp = re.search('(?<=<ul id="x-wiki-index" class="uk-nav uk-nav-side" style="margin-right:-15px;">).*?(?=</ul>)',
         #                     html, re.S)
         # print("url_box_temp: ", url_box_temp)
-        url_box = re.search('(?<=<ul id="x-wiki-index" class="uk-nav uk-nav-side" style="margin-right:-15px;">).*?(?=</ul>)',
-                            html, re.S).group()
+        url_box = re.search(
+            '(?<=<ul id="x-wiki-index" class="uk-nav uk-nav-side" style="margin-right:-15px;">).*?(?=</ul>)',
+            html, re.S).group()
         url_list = re.findall('href="(.*?)" class="x-wiki-index-item">(.*?)</a>', url_box, re.S)
         new_url_list = [(url, name) for url, name in url_list]
         return new_url_list
